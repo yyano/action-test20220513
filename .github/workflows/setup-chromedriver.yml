@@ -31,10 +31,19 @@ jobs:
 
       - name: echo-test
         run: |
+          mkdir testdir
+          cd testdir
           echo "hello" > test.html
+          cd ..
 
-      - name: chrome-test
-        run: |
-          export DISPLAY=:99
-          chromedriver --url-base="https://google.com/" &
-          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
+      - name: set-artifact
+        uses: actions/download-artifact@v3
+        with:
+          path: testdir
+
+
+#       - name: chrome-test
+#         run: |
+#           export DISPLAY=:99
+#           chromedriver --url-base="https://google.com/" &
+#           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
