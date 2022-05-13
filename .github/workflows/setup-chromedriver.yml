@@ -29,6 +29,10 @@ jobs:
           # Optional: do not specify to match Chrome's version
           chromedriver-version: '101.0.4951.41'
 
+      - name: echo-test
+        run: |
+          echo "hello" > test.html
+
       - name: chrome-test
         run: |
           export DISPLAY=:99
