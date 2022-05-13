@@ -40,8 +40,9 @@ jobs:
           cd ..
 
       - name: set-artifact
-        uses: actions/download-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
+          name: hello-test
           path: testdir
 
 
